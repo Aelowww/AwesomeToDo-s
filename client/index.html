@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Awesome ToDo's</title>
+    <meta name="description" content="A student planner for classes, deadlines, grades and focus sessions, with an AI study buddy." />
+    <meta name="theme-color" content="#d6e4fa" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      // Pick the saved theme before the page paints, so it never flashes the wrong colors.
+      (function () {
+        var pref = 'light'
+        try { pref = JSON.parse(localStorage.getItem('awesome-todos:theme')) || 'light' } catch (e) {}
+        if (pref === 'system') pref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = pref
+      })()
+    </script>
+    <link rel="icon" type="image/png" href="/favicon-64.png" />
+    <link rel="preload" as="image" href="/logo-192.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ToDo's" />
+  </head>
+  <body>
+    <noscript>Awesome ToDo's needs JavaScript to run.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
